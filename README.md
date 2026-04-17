@@ -212,6 +212,21 @@ export TUSHARE_TOKEN='your_token_here'
 | MDA | 管理层讨论 | 经营情况讨论与分析 |
 | SUB | 子公司 | 主要子公司/长期股权投资明细 |
 
+### 通达信本地初选池（按公式快速筛选）
+
+```bash
+# 读取本地 vipdoc 日线并输出初选池
+python scripts/tdx_initial_pool.py --vipdoc "F:/newVer/vipdoc" --finance39-csv "F:/newVer/finance39.csv" --output output/initial_pool.csv
+```
+
+详细 PyCharm 配置见：`docs/pycharm_tdx_setup.md`。
+
+如需对候选池进行 A/B/C/E 加分与 D 扣分评级，可继续执行：
+
+```bash
+python scripts/score_initial_pool.py --input output/pool_features.csv --output output/initial_pool_scored.csv
+```
+
 ### 批量选股（龟龟选股器）
 
 ```bash
